@@ -4,7 +4,7 @@ import requests
 
 def fetch_poster(movie_id):
     try:
-        url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US"
+        url = f"https://api.themoviedb.org/3/movie/{movie_id}?use_your_own_api_key"
         response = requests.get(url, timeout=5)  # 5 sec timeout
         response.raise_for_status()  # raise error for bad response
         data = response.json()
@@ -47,3 +47,4 @@ if st.button("Show Recommendation"):
     for col, name, poster in zip(cols, names, posters):
         col.text(name)
         col.image(poster)
+
